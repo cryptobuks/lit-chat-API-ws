@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_233041) do
     t.string "username"
     t.integer "age"
     t.boolean "active", default: true
-    t.datetime "last_login", default: "2019-11-12 23:39:38"
+    t.datetime "last_login", default: "2019-11-13 02:15:36"
     t.integer "cool_points", default: 0
   end
 

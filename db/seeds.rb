@@ -1,35 +1,3 @@
-=begin
-  User attributes:
-  
-      - Message - 
-      t.integer :user_id
-      t.string :content
-      t.string :status, default: 'sent'
-      t.timestamp :time_read, default: nil
-     
-      - Chat -
-      t.string :type
-      t.integer :host_id, default: nil
-      t.string :name, default: nil
-      t.string :description, default: nil
-
-      - User - 
-      t.string :username
-      t.integer :age
-      t.boolean :active
-      t.timestamp :last_login
-      t.integer :cool_points, default: 0
-
-      -UserChat-
-      t.bigint "user_id", null: false
-      t.bigint "chat_id", null: false
-      t.boolean "alert"
-      t.boolean "banned"
-      
-  end
-
-
-=end
 Message.destroy_all
 UserChat.destroy_all
 User.destroy_all
@@ -42,7 +10,7 @@ nicci = User.create!(username: 'niccihustle', age: 24, active: false)
 crispy = User.create!(username: 'crisPy', age: 32, active: true)
 
 
-chat_1 = Chat.create!(chat_type: 'thread', host_id: matt.id, name: 'First LitChat', description: "Don't you open up that window..")
+chat_1 = Chat.create!(chat_type: 'thread', host_id: matt.id, name: 'First LitChat')
 chat_2 = Chat.create!(chat_type: 'DM')
 
 
