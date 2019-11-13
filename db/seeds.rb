@@ -10,8 +10,8 @@ nicci = User.create!(username: 'niccihustle', age: 24, active: false)
 crispy = User.create!(username: 'crisPy', age: 32, active: true)
 
 
-chat_1 = Chat.create!(chat_type: 'thread', host_id: matt.id, name: 'First LitChat')
-chat_2 = Chat.create!(chat_type: 'DM')
+chat_1 = Chat.create!(chat_type: 'pub_group', host_id: matt.id, name: 'First LitChat')
+chat_2 = Chat.create!(chat_type: 'dm', name: 'dm')
 
 
 user_chat_1 = UserChat.create!(user_id: matt.id, chat_id: chat_1.id)

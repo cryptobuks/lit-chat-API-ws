@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_233041) do
+ActiveRecord::Schema.define(version: 2019_11_13_021822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2019_11_12_233041) do
     t.string "chat_type"
     t.integer "host_id"
     t.string "name"
-    t.string "description"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -45,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_233041) do
     t.string "username"
     t.integer "age"
     t.boolean "active", default: true
-    t.datetime "last_login", default: "2019-11-13 02:15:36"
+    t.datetime "last_login", default: "2019-11-13 02:19:44"
     t.integer "cool_points", default: 0
   end
 

@@ -13,6 +13,5 @@ class Chat < ApplicationRecord
   validates :chat_type, inclusion: { in: %w(dm pri_group pub_group),
     message: "%{value} is not a proper group type" }, presence: true
   validates :name, length: { maximum: 29, 
-    too_long: "Chat name must be less than %{count} characters." },
-    presence: true, uniqueness: true
+    too_long: "Chat name must be less than %{count} characters." }
 end
