@@ -11,6 +11,7 @@ class Api::V1::SessionsController < ApplicationController
       render json: { ok: false, message: 'Your login link has expired. Request for a new login link.' }
     else
       sign_in_user(user)
+      # send the user an encrypted JWT, hide your JWT master key in .env
       render json: { ok: true, message: 'You have been signed in!'}
     end
   end
@@ -25,12 +26,9 @@ class Api::V1::SessionsController < ApplicationController
     user = User.find_user_by(value)
   
     if !user
-      # alter below
-      response.set_header('Access-Control-Allow-Origin': '*')
       render json: { message: "Uh oh! We couldn't find the username / email. Please try again." }
     else
       user.send_login_link
-      # alter below
       render json: { message: 'We have sent you the link to login to our app' }
     end
   end
