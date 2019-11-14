@@ -14,9 +14,14 @@ class User < ApplicationRecord
     self.fullname.split(" ")[1]
   end
 
+  def send_signin_link
+    generate_login_token
+    @link = self.login_link
+    UserMailer.with( user: self, link: @link ).welcome_email.deliver_now
+  end
+
   def send_login_link
     generate_login_token
-
     @link = self.login_link
     UserMailer.with( user: self, link: @link ).login_email.deliver_now
   end
@@ -28,7 +33,7 @@ class User < ApplicationRecord
   end
 
   def login_link
-    "http://localhost:3005/auth?token=#{self.login_token}"
+    "http://#{ENV['HOST']}/api/v1/auth/#{self.id}/#{self.login_token}"
   end
 
   def login_token_expired?
@@ -42,6 +47,10 @@ class User < ApplicationRecord
 
   def self.find_user_by(value)
     where(["username = :value OR email = :value", {value: value}]).first
+  end
+
+  def valid_token?(token)
+    self.login_token == token 
   end
 
   private

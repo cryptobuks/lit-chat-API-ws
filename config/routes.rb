@@ -7,9 +7,9 @@ Rails.application.routes.draw do
       resources :chats, only: %i[index show create destroy]
       resources :user_chats, only: %i[create update]
       resources :messages, only: %i[create update destroy]
-      resources :session, only: %i[create]
+      resources :sessions, only: %i[create]
       post '/register', to: "users#create"
-      get '/auth/:user_id/:token', to: "session#auth"
+      get '/auth/:user_id/:token', to: "sessions#auth"
       
     end
   end

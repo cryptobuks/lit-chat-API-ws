@@ -8,6 +8,7 @@ Chat.destroy_all
 matt = User.create!(fullname: "Matthew Campbell", email: "matjocampbell@gmail.com", username: 'matjocampbell', age: 22, active: true, cool_points: 1000)
 nicci = User.create!(email: "niccihustle@gmail.com", username: 'niccihustle', age: 24, active: false)
 crispy = User.create!(email: "crisPychicken@gmail.com", username: 'crisPy', age: 32, active: true)
+emiley = User.create!(fullname: "Emiley Palmquist", email: "emiley.palmquist@gmail.com", username: 'emiley', age: 24, cool_points: 1000000)
 
 
 chat_1 = Chat.create!(chat_type: 'pub_group', host_id: matt.id, name: 'First LitChat')

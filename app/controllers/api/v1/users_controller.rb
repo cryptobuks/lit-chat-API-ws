@@ -16,7 +16,6 @@ class Api::V1::UsersController < ApplicationController
     if @user.valid?
       @user.save
       @user.send_login_link
-      UserMailer.with(user: @user).welcome_email.deliver_now
       render json: { message: "Welcome! We have sent you the link to login to our app"}, status: :created
     else 
       render json: { errors: @user.errors.full_messages }, status: :not_acceptable
