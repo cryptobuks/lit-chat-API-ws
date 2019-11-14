@@ -117,5 +117,3 @@ Rails.application.configure do
   }
 end
 
-matjocampbell19972019
-vxerbsdsgynmxwzv
