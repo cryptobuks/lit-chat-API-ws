@@ -26,6 +26,7 @@ class Api::V1::SessionsController < ApplicationController
   
     if !user
       # alter below
+      response.set_header('Access-Control-Allow-Origin': '*')
       render json: { message: "Uh oh! We couldn't find the username / email. Please try again." }
     else
       user.send_login_link
