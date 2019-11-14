@@ -15,7 +15,9 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
-      render json: { user: @user }, status: :created
+      @user.send_login_link
+      UserMailer.with(user: @user).welcome_email.deliver_now
+      render json: { message: "Welcome! We have sent you the link to login to our app"}, status: :created
     else 
       render json: { errors: @user.errors.full_messages }, status: :not_acceptable
     end
@@ -49,7 +51,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :age, :cool_points)
+    params.require(:user).permit(:fullname, :email, :username, :age, :cool_points)
   end
 
 end

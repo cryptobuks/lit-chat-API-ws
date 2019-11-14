@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_13_021822) do
+ActiveRecord::Schema.define(version: 2019_11_13_201651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,8 +44,12 @@ ActiveRecord::Schema.define(version: 2019_11_13_021822) do
     t.string "username"
     t.integer "age"
     t.boolean "active", default: true
-    t.datetime "last_login", default: "2019-11-13 02:19:44"
+    t.datetime "last_login", default: "2019-11-13 20:22:34"
     t.integer "cool_points", default: 0
+    t.string "email"
+    t.string "login_token"
+    t.datetime "token_generated_at"
+    t.string "fullname"
   end
 
   add_foreign_key "user_chats", "chats"
